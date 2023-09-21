@@ -9,6 +9,11 @@ djangorestframework
 pytest
 
 pytest django
+
+black
+
+flake8
+
 <!-- Commands -->
 
 django-admin startproject ecommerce
@@ -25,4 +30,4 @@ pip install --upgrade pip
 
 <!-- Pytest -->
 
-pytest -h  <!-- prints options _and_ config file settings-->
+pytest -h <!-- prints options _and_ config file settings-->
