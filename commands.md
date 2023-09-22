@@ -18,6 +18,12 @@ django-mptt
 
 drf-spectacular
 
+coverage
+
+pytest-cov
+
+pytest-factoryboy
+
 <!-- Commands -->
 
 django-admin startproject ecommerce
@@ -33,6 +39,12 @@ exit()
 pip install --upgrade pip
 
 py manage.py spectacular --file schema.yml
+
+coverage run -m pytest
+
+coverage html
+
+pytest --cov
 
 <!-- Pytest -->
 
