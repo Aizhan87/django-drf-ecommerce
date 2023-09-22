@@ -14,6 +14,8 @@ black
 
 flake8
 
+django-mptt
+
 <!-- Commands -->
 
 django-admin startproject ecommerce

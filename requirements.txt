@@ -3,6 +3,8 @@ black==23.9.1
 click==8.1.7
 colorama==0.4.6
 Django==4.2.5
+django-js-asset==2.1.0
+django-mptt==0.14.0
 djangorestframework==3.14.0
 flake8==6.1.0
 iniconfig==2.0.0
