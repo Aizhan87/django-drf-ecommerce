@@ -33,3 +33,17 @@ pip install --upgrade pip
 <!-- Pytest -->
 
 pytest -h <!-- prints options _and_ config file settings-->
+
+
+<!-- To make VS Code recognize python code -->
+
+1. Control+ shift + p.
+2. type 'Python: Select Interpreter' and select the same.
+3. choose your virtual env from the list if it is not listed please choose Enter Interpreter path'
+4. Give pathe like this 'C:\Users\user\Desktop\Python\django-drf-ecommerce\env'
+
+
+<!-- Useful links -->
+
+https://www.django-rest-framework.org/api-guide/viewsets/
+https://docs.djangoproject.com/en/4.2/ref/models/fields/
