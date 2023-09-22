@@ -44,7 +44,10 @@ coverage run -m pytest
 
 coverage html
 
-pytest --cov
+pytest --cov <!-- to see how many tests should be written -->
+
+pytest -s <!-- Will give a more comprehensive response like from print() in terminal -->
+
 
 <!-- Pytest -->
 
