@@ -66,3 +66,7 @@ pytest -h <!-- prints options _and_ config file settings-->
 
 https://www.django-rest-framework.org/api-guide/viewsets/
 https://docs.djangoproject.com/en/4.2/ref/models/fields/
+
+
+<!-- Source learning tool -->
+https://www.udemy.com/course/django-drf-project-ecommerce
