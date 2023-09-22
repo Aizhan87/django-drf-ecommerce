@@ -16,6 +16,8 @@ flake8
 
 django-mptt
 
+drf-spectacular
+
 <!-- Commands -->
 
 django-admin startproject ecommerce
@@ -29,6 +31,8 @@ print(get_random_secret_key())
 exit()
 
 pip install --upgrade pip
+
+py manage.py spectacular --file schema.yml
 
 <!-- Pytest -->
 
