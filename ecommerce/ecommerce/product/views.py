@@ -39,7 +39,7 @@ class BrandView(viewsets.ViewSet):
     
     
 class ProductView(viewsets.ViewSet):
-    queryset = Product.objects.all()
+    queryset = Product.objects.all().isactive() #use isactive from Product model
     lookup_field = 'slug'
     
     def retrieve(self, request, slug=None):
