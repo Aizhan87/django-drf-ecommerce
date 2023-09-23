@@ -24,6 +24,8 @@ pytest-cov
 
 pytest-factoryboy
 
+pygments
+
 <!-- Commands -->
 
 django-admin startproject ecommerce
@@ -66,6 +68,8 @@ pytest -h <!-- prints options _and_ config file settings-->
 
 https://www.django-rest-framework.org/api-guide/viewsets/
 https://docs.djangoproject.com/en/4.2/ref/models/fields/
+https://pygments.org/docs/lexers/#pygments.lexers.sql.SqlLexer
+https://www.w3schools.com/sql/sql_join.asp
 
 
 <!-- Source learning tool -->
