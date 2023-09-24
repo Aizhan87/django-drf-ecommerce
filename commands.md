@@ -44,12 +44,15 @@ py manage.py spectacular --file schema.yml
 
 coverage run -m pytest
 
-coverage html
+coverage html <!-- to create an htmlcov -->
 
-pytest --cov <!-- to see how many tests should be written -->
+pytest --cov <!-- to see how many tests should be written (already implemented in setup.cfg) -->
 
 pytest -s <!-- Will give a more comprehensive response like from print() in terminal -->
 
+pytest -k test_category_get <!-- to run a specific test -->
+
+pytest -x <!-- to pinpoint where test fails (already implemented in setup.cfg) -->
 
 <!-- Pytest -->
 
