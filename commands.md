@@ -26,6 +26,8 @@ pytest-factoryboy
 
 pygments
 
+pillow
+
 <!-- Commands -->
 
 django-admin startproject ecommerce
