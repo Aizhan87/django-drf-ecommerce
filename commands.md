@@ -83,3 +83,4 @@ https://www.udemy.com/course/django-drf-project-ecommerce
 
 <!-- Functions -->
 select_related() --> JOIN in sql
+prefetch_related() --> to make a relations with reversed foreign keys
