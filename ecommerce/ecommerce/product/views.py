@@ -43,7 +43,7 @@ class ProductView(viewsets.ViewSet):
     lookup_field = 'slug'
     
     def retrieve(self, request, slug=None):
-        serializer = ProductSerializer(self.queryset.filter(slug=slug).select_related('category', 'brand'), many=True)
+        serializer = ProductSerializer(Product.objects.filter(slug=slug).select_related('category', 'brand'), many=True)
         data = Response(serializer.data)
         # q = list(connection.queries)
         # print(len(q))

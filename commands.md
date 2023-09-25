@@ -79,3 +79,7 @@ https://www.w3schools.com/sql/sql_join.asp
 
 <!-- Source learning tool -->
 https://www.udemy.com/course/django-drf-project-ecommerce
+
+
+<!-- Functions -->
+select_related() --> JOIN in sql

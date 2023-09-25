@@ -26,7 +26,7 @@ class ProductImageInline(admin.TabularInline):
     
 class ProductLineInline(EditLinkInline, admin.TabularInline):
     model = ProductLine
-    readonly_fields = ('edit',)
+    readonly_fields = ['edit']
 
 class ProductAdmin(admin.ModelAdmin):
     inlines = [ProductLineInline]
