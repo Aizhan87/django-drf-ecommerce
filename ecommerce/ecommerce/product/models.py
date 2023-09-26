@@ -10,6 +10,7 @@ class ActiveQuerySet(models.QuerySet):
     def isactive(self):
         return self.filter(is_active=True)
 
+
 class Category(MPTTModel):
     name = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=255)
@@ -22,6 +23,7 @@ class Category(MPTTModel):
     def __str__(self) :
         return self.name
     
+    
 class Brand(models.Model):
     name = models.CharField(max_length=100, unique=True)
     is_active = models.BooleanField(default=False)
@@ -29,6 +31,7 @@ class Brand(models.Model):
     
     def __str__(self) :
         return self.name
+    
     
 class Product(models.Model):
     name = models.CharField(max_length=100)
@@ -43,6 +46,19 @@ class Product(models.Model):
     def __str__(self) :
         return self.name
     
+    
+class Attribute(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField(blank=True)
+    
+    
+
+class AttributeValue(models.Model):
+    attribute_value = models.CharField(max_length=100)
+    attribute = models.ForeignKey(Attribute, on_delete=models.CASCADE, related_name='attribute_value')
+    
+    
+    
 class ProductLine(models.Model):
     price = models.DecimalField(max_digits=5, decimal_places=2)
     sku = models.CharField(max_length=100)
@@ -50,6 +66,7 @@ class ProductLine(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='product_line')
     is_active = models.BooleanField(default=False)
     order = OrderField(unique_for_field='product', blank=True)
+    attribute_value = models.ManyToManyField(AttributeValue, through='ProductLineAttributeValue')
     objects = ActiveQuerySet.as_manager()
     
     def clean(self):
@@ -64,6 +81,17 @@ class ProductLine(models.Model):
     
     def __str__(self) :
         return str(self.sku)
+    
+    
+    
+class ProductLineAttributeValue(models.Model):
+    attribute_value = models.ForeignKey(AttributeValue, on_delete=models.CASCADE, related_name='product_attribute_value_av')
+    product_line = models.ForeignKey(ProductLine, on_delete=models.CASCADE, related_name='product_attribute_value_pl')
+    
+    class Meta:
+        unique_together = ('attribute_value', 'product_line')
+    
+    
     
 class ProductImage(models.Model):
     alternative_text = models.CharField(max_length=100)
