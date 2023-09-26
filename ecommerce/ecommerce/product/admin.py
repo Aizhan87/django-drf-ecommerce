@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import reverse
 from django.utils.safestring import mark_safe
-from .models import Brand, Category, Product, ProductLine, ProductImage
+from .models import Brand, Category, Product, ProductLine, ProductImage, AttributeValue, Attribute
 
 # class ProductLineInline(admin.TabularInline):
 #     model = ProductLine
@@ -21,20 +21,31 @@ class EditLinkInline(object):
         else:
             return ''
         
+        
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
+    
     
 class ProductLineInline(EditLinkInline, admin.TabularInline):
     model = ProductLine
     readonly_fields = ['edit']
+    
 
 class ProductAdmin(admin.ModelAdmin):
     inlines = [ProductLineInline]
     
+    
+class AttributeValueInline(admin.TabularInline):
+    model = AttributeValue.product_line_attribute_value.through
+    
+    
 class ProductLineAdmin(admin.ModelAdmin):
-    inlines = [ProductImageInline]
+    inlines = [ProductImageInline, AttributeValueInline]
+    
     
 admin.site.register(Brand)
 admin.site.register(Category)
 admin.site.register(Product, ProductAdmin)
 admin.site.register(ProductLine, ProductLineAdmin)
+admin.site.register(Attribute)
+admin.site.register(AttributeValue)
