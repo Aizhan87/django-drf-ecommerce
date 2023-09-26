@@ -122,6 +122,10 @@ class ProductImage(models.Model):
 
 class ProductType(models.Model):
     name = models.CharField(max_length=100)
+    attribute = models.ManyToManyField(Attribute, through='ProductTypeAttribute', related_name='product_type_attribute')
+    
+    def __str__(self) :
+        return str(self.name)
     
     
 class ProductTypeAttribute(models.Model):
