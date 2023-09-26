@@ -73,6 +73,7 @@ class ProductLine(models.Model):
     is_active = models.BooleanField(default=False)
     order = OrderField(unique_for_field='product', blank=True)
     attribute_value = models.ManyToManyField(AttributeValue, through='ProductLineAttributeValue', related_name='product_line_attribute_value')
+    product_type = models.ForeignKey('ProductType', on_delete=models.PROTECT)
     objects = ActiveQuerySet.as_manager()
     
     def clean(self):
@@ -117,3 +118,15 @@ class ProductImage(models.Model):
     
     def __str__(self) :
         return str(self.order)
+    
+
+class ProductType(models.Model):
+    name = models.CharField(max_length=100)
+    
+    
+class ProductTypeAttribute(models.Model):
+    product_type = models.ForeignKey(ProductType, on_delete=models.CASCADE, related_name='product_type_attribute_pt')
+    attribute = models.ForeignKey(Attribute, on_delete=models.CASCADE, related_name='product_type_attribute_a')
+    
+    class Meta:
+        unique_together = ('product_type', 'attribute')
